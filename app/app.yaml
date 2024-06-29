@@ -1,0 +1,15 @@
+runtime: custom
+env: flex
+service: wound-seg-app  # Choose a unique name
+
+# Ensure requests time out after 1 minute.
+readiness_check:
+  app_start_timeout_sec: 60
+
+
+  
+
+#Resources needed for your model 
+resources:
+  cpu: 4 # Number of cpu cores
+  memory_gb: 8  # Memory in GB

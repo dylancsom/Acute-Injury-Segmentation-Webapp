@@ -1,0 +1,8 @@
+streamlit==1.36.0
+tensorflow==2.15.0
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+matplotlib==3.7.1
+av==12.2.0
+streamlit-webrtc==0.47.7
+Pillow==9.4.0
