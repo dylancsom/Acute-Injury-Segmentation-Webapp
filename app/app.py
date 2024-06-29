@@ -1,6 +1,4 @@
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer, VideoProcessorBase, RTCConfiguration, VideoTransformerBase
-import av
 import tensorflow as tf
 import numpy as np
 from keras.preprocessing.image import load_img, img_to_array
@@ -13,8 +11,8 @@ import os
 import time
 import json
 
-background_ratio = 0.8
-wound_ratio = 0.2
+background_ratio = 0.00
+wound_ratio = 0.00
 class_weights = {0: 1.0, 1: background_ratio / wound_ratio}
 
 
@@ -63,7 +61,7 @@ def iou_loss(y_true, y_pred, smooth=1e-6):
     return 1 - iou
 
 
-def combined_dice_iou_loss(y_true, y_pred, smooth=1e-6, dice_weight=0.5, iou_weight=0.5, wound_weight=0.75):
+def combined_dice_iou_loss(y_true, y_pred, smooth=1e-6, dice_weight=0.00, iou_weight=0.00, wound_weight=0.00):
     unweighted_dice_loss = dice_coef_loss(y_true, y_pred, smooth)
     weighted_dice_loss = weighted_dice_coef_loss(y_true, y_pred, smooth)
     combined_dice_loss = wound_weight * weighted_dice_loss + (1 - wound_weight) * unweighted_dice_loss
